@@ -20,9 +20,9 @@ public class Memorama extends JFrame {
     private JButton primerBoton, segundoBoton;
     private int primerIndice, segundoIndice;
     private boolean verificandoCoincidencia = false;
-    private static final Color COLOR_DEFECTO = new Color(0, 51, 102); // Azul oscuro
-    private static final Color COLOR_TEXTO = Color.WHITE; // Color blanco para el texto
-    private static final Color COLOR_COINCIDENCIA = new Color(0, 255, 0); // Color verde para las cartas encontradas
+    private static final Color COLOR_DEFECTO = new Color(0, 51, 102);
+    private static final Color COLOR_TEXTO = Color.WHITE;
+    private static final Color COLOR_COINCIDENCIA = new Color(0, 255, 0);
 
     public Memorama() {
         setTitle("Memorando de Verificación de Software");
@@ -122,8 +122,8 @@ public class Memorama extends JFrame {
         getContentPane().add(panelJuego, BorderLayout.CENTER);
         getContentPane().add(crearPanelBotones(), BorderLayout.SOUTH);
 
-        revalidate(); // Revalidar el contenido del frame
-        repaint(); // Repintar el frame
+        revalidate();
+        repaint();
     }
 
     private void mostrarTodasLasCartas() {
@@ -161,11 +161,11 @@ public class Memorama extends JFrame {
             if (esCoincidencia(primerIndice, segundoIndice)) {
                 primerBoton.setEnabled(false);
                 segundoBoton.setEnabled(false);
-                mostrarCoincidencia(primerBoton, segundoBoton); // Mostrar la coincidencia antes de eliminar las cartas
+                mostrarCoincidencia(primerBoton, segundoBoton); 
                 Timer temporizador = new Timer(1500, (ActionEvent evt) -> {
                     eliminarBoton(primerBoton);
                     eliminarBoton(segundoBoton);
-                    verificarFinJuego(); // Verificar si se completó el juego
+                    verificarFinJuego(); 
                 });
                 temporizador.setRepeats(false);
                 temporizador.start();
@@ -193,9 +193,9 @@ public class Memorama extends JFrame {
     }
 
     private void eliminarBoton(JButton boton) {
-        boton.setVisible(false); // Ocultar el botón
-        botones.remove(boton); // Remover el botón de la lista de botones
-        getContentPane().validate(); // Validar el contenedor para actualizar la interfaz
+        boton.setVisible(false); 
+        botones.remove(boton); 
+        getContentPane().validate(); 
     }
 
     private boolean esCoincidencia(int indice1, int indice2) {
